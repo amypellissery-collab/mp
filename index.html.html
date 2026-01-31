@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container {
+        background: rgba(255,255,255,0.95);
+        padding: 24px;
+        border-radius: 22px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        z-index: 2;
+        width: 90%;
+        max-width: 420px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    h1 {
+        color: #e63946;
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 12px 28px;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    #yes {
+        background: #e63946;
+        color: white;
+    }
+
+    #no {
+        background: #adb5bd;
+        color: white;
+    }
+
+    .message {
+        display: none;
+        font-size: 16px;
+        color: #e63946;
+        line-height: 1.6;
+    }
+
+    .love-btn {
+        background: #ff4d6d;
+        color: white;
+        margin-top: 20px;
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 20px;
+        animation: float 8s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+        50% { opacity: 1; }
+        100% {
+            transform: translateY(-10vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="card">
+    <h1>Do you miss me, my love? 💖</h1>
+
+    <div class="button-group">
+        <button id="yes" onclick="yesClicked()">Yes 💕</button>
+        <button id="no">No 😝</button>
+    </div>
+</div>
+
+<div class="container message" id="finalMessage">
+    💖 My Love, Mazha Goad Baal 💖<br><br>
+
+    If you’re reading this because you miss me, take a deep breath.  
+    Even though we’re far apart, my heart is right there with you.  
+    Distance can’t change what we have—never.<br><br>
+
+    Every day apart is one day closer to being together again.  
+    Missing each other only proves how strong our love is.<br><br>
+
+    I think of you in songs, quiet nights, and little moments.  
+    You’re never alone, even on the hard days.<br><br>
+
+    Close your eyes and imagine me holding your face  
+    and telling you everything will be okay—because it will be.  
+    We’ll be okay. Always.<br><br>
+
+    I love you endlessly, across every mile.<br>
+    Yours, always,<br>
+    Maithili 🤍<br><br>
+
+    <button class="love-btn" onclick="loveClicked()">I love you ❤️</button>
+</div>
+
+<div class="container message" id="moreLove">
+    ❤️❤️❤️<br><br>
+    I love you more than words can explain.<br>
+    Always. Forever. ♾️
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+
+    function moveNo() {
+        const padding = 80;
+
+        noBtn.style.position = "fixed";
+
+        const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+        const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    // Desktop: mouse gets close
+    noBtn.addEventListener("mouseenter", moveNo);
+
+    // Mobile: finger touches
+    noBtn.addEventListener("touchstart", moveNo);
+
+    function yesClicked() {
+        document.getElementById("card").style.display = "none";
+        document.getElementById("finalMessage").style.display = "block";
+    }
+
+    function loveClicked() {
+        document.getElementById("finalMessage").style.display = "none";
+        document.getElementById("moreLove").style.display = "block";
+    }
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 5) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
+
